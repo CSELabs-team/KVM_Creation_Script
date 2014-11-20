@@ -1,0 +1,12 @@
+virt-install --connect=qemu:///system \
+    --network=bridge:virbr0 \
+    --initrd-inject=/var/tmp/fed-minimal.ks \
+    --extra-args="ks=file:/fed-minimal.ks console=tty0 console=ttyS0,115200" \
+    --name=web_dev2 \
+    --disk path=/var/lib/libvirt/images/web_dev2.qcow2,format=qcow2 \
+    --ram 2048 \
+    --vcpus=2 \
+    --check-cpu \
+    --hvm \
+    --location=http://download.fedora.redhat.com/pub/fedora/linux/releases/15/Fedora/x86_64/os/ \
+    --nographics 
